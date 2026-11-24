@@ -164,7 +164,7 @@ else:
         result = calculate(data, atr_period, pivot_len, ema_filter, rr1, rr2)
         st.success(
             f"Loaded {len(data):,} candles • {data.index.min():%d %b %Y} to "
-            f"{data.index.max():%d %b %Y} • {data.index.date.nunique()} trading sessions"
+            f"{data.index.max():%d %b %Y} • {pd.Index(data.index.date).nunique()} trading sessions"
         )
         st.caption("Chart uses the CSV's actual timestamp column. No synthetic row-number x-axis.")
         latest = result.iloc[-1]
